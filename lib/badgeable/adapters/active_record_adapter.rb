@@ -38,6 +38,10 @@ class Badge < ActiveRecord::Base
   end
   
   def icon
-    "/images/#{name.parameterize}.jpg"
+    if read_attribute(:icon)
+      read_attribute(:icon)
+    else
+      "/images/#{name.parameterize}.jpg"
+    end
   end
 end
